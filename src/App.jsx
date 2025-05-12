@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-import { Navbar } from './components/Navbar'
+import { Navigationbar } from './components/Navbar'
 
 
 
@@ -10,22 +10,7 @@ function App() {
 
   return (
     <div>
-      <Navbar/>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <Navigationbar/>
     </div>
   )
 
