@@ -127,7 +127,7 @@ const NavArray = [
 ];
 
 // Main Navigation Component
-export function NavbarRecursive() {
+export function TestingRecursion() {
   return (
     <>
     <nav className="flex px-8 py-4 bg-white shadow-lg">
