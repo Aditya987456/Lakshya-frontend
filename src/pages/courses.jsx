@@ -1,8 +1,12 @@
-export function Courses() {
+import { Outlet } from "react-router-dom";
+
+export function Course() {
 
     return(
         <div>
-           courseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeessssssssssss
+           CCCCCOOOOOOOOOUUUUUUUUURRRRRRRRRRRRSSSSSSSSSSSEEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSS
+           <h1>Courses Page</h1>
+           <Outlet />
         </div>
     )
     

@@ -3,32 +3,33 @@ import { useState } from "react";
 import { MdKeyboardArrowDown} from "react-icons/md";
 
 
-import logo from '../assets/allen-logo.png'
+ //import logo from '../assets/allen-logo.png'
+import logo from '../assets/lakshya.png'
 
 // Navigation array - data structure
 const NavArray = [
   {
     Name: "Courses",
-    path: "/",
+    path: 'courses',
     dropdown: [
       {
         Name: "NEET",
-        path: "/neet",
+        path: "courses/neet",
         dropdown: [
-          { Name: "Class 11th", path: "/online-coaching-class-11" },
-          { Name: "Class 12th", path: "/online-coaching-class-12" },
-          { Name: "Class 12th Plus", path: "/online-coaching-class-12-droppers" }
+          { Name: "Class 11th", path: "courses/neet/class-11" },
+          { Name: "Class 12th", path: "courses/neet/class-12" },
+          { Name: "Class 12th Plus", path: "courses/neet/class-12-droppers" }
         ],
       },
 
 
 
       { Name: "JEE",
-        path: "/jee",
+        path: "courses/jee",
         dropdown: [
-            { Name: "Class 11th", path: "/online-coaching-class-11" },
-            { Name: "Class 12th", path: "/online-coaching-class-12" },
-            { Name: "Class 12th Plus", path: "/online-coaching-class-12-droppers" }
+            { Name: "Class 11th", path: "courses/jee/class-11" },
+            { Name: "Class 12th", path: "courses/jee/class-12" },
+            { Name: "Class 12th Plus", path: "courses/jee/class-12-droppers" }
           ],
        },
 
@@ -52,8 +53,8 @@ const NavArray = [
         Name: "View All Options",
         path: "/",
         dropdown: [
-          { Name: "Online Courses", path: "/std-6" },
-          { Name: "Offline Courses", path: "offlin-websitw" },
+          { Name: "Online Courses", path: "/online-live-courses" },
+          { Name: "Offline Courses", path: "offlin-website" },
           { Name: "Distance Courses", path: "/distance-website" },
           { Name: "Hindi Medium Courses", path: "/hindi-courses" },
           { Name: "International Olympiad", path: "/std-10"},
@@ -68,50 +69,92 @@ const NavArray = [
   },
 
 
-  { Name: "TestSeries", path: "/test",
+  { Name: "TestSeries", path: "/tests",
     dropdown: [
-        { Name: "Class 11", path: "/jee/class-11" },
-        { Name: "Class 12", path: "/jee/class-12",
-            dropdown: [
-                { Name: "Class 11", path: "/jee/class-11" },
-                { Name: "Class 12", path: "/jee/class-12" },
-              ],
+        { Name: "NEET", path: "/neet/online-test",
+          dropdown: [
+            { Name: "Class 11th", path: "/class-11th" },
+            { Name: "Class 12th", path: "/class-12th" },
+            { Name: "Class 12th Plus", path: "/class-12-droppers" }
+           ],
+         },
+
+
+
+        { Name: "JEE (Main+Advanced)", path: "/jee/online-test",
+          dropdown: [
+            { Name: "Class 11th", path: "/class-11th" },
+            { Name: "Class 12th", path: "/class-12th" },
+            { Name: "Class 12th Plus", path: "/class-12-droppers" }
+           ],
          },
       ],
    },
 
 
-  { Name: "Result", path: "/result" },
+
+
+
+  { Name: "Result", path: "/results",
+    dropdown: [
+      { Name: "NEET", path: "/result/neet",
+        dropdown: [
+          { Name: "2025", path: "/2025" },
+          { Name: "2024", path: "/2024" },
+          { Name: "2023", path: "/2023" }
+         ],
+       },
+
+
+      { Name: "JEE", path: "/result/jee",
+        dropdown: [
+          { Name: "2025", path: "/2025" },
+          { Name: "2024", path: "/2024" },
+          { Name: "2023", path: "/2023" }
+         ],
+       },
+
+     ],
+   },
+
+
+
+
 
   { Name: "Study Materials", path: "/books" },
 
-  { Name: "Books", path: "/books" },
 
-  { Name: "More", path: "/books",
+
+
+
+
+
+
+  { Name: "More", path: "/recursion-dropdown",
     dropdown: [
-        { Name: "Class 6", path: "/std-6" },
-        { Name: "Class 7", path: "/std-7" },
-        { Name: "Class 8", path: "/std-8" },
-        { Name: "Class 9", path: "/std-9" },
-        { Name: "Class 10", path: "/std-10",
+        { Name: "Playing with dropdown", path: "/playing" },
+        { Name: "Playing with dropdown7", path: "/playing" },
+        { Name: "Playing with dropdown", path: "/playing" },
+        { Name: "Playing with dropdown", path: "/playing" },
+        { Name: "Playing with dropdown", path: "/playing",
             dropdown: [
-                { Name: "Class 6", path: "/std-6" },
-                { Name: "Class 7", path: "/std-7" },
-                { Name: "Class 8", path: "/std-8" },
-                { Name: "Class 9", path: "/std-9" },
-                { Name: "Class 10", path: "/std-10",
+              { Name: "Playing with dropdown", path: "/playing" },
+              { Name: "Playing with dropdown7", path: "/playing" },
+              { Name: "Playing with dropdown", path: "/playing" },
+              { Name: "Playing with dropdown", path: "/playing" },
+              { Name: "Playing with dropdown", path: "/playing",
                     dropdown: [
-                        { Name: "Class 6", path: "/std-6" },
-                        { Name: "Class 7", path: "/std-7" },
-                        { Name: "Class 8", path: "/std-8" },
-                        { Name: "Class 9", path: "/std-9" },
-                        { Name: "Class 10", path: "/std-10",
+                      { Name: "Playing with dropdown", path: "/playing" },
+                      { Name: "Playing with dropdown7", path: "/playing" },
+                      { Name: "Playing with dropdown", path: "/playing" },
+                      { Name: "Playing with dropdown", path: "/playing" },
+                      { Name: "Playing with dropdown", path: "/playing",
                             dropdown: [
-                                { Name: "Class 6", path: "/std-6" },
-                                { Name: "Class 7", path: "/std-7" },
-                                { Name: "Class 8", path: "/std-8" },
-                                { Name: "Class 9", path: "/std-9" },
-                                { Name: "Class 10", path: "/std-10"},
+                              { Name: "Playing with dropdown", path: "/playing" },
+                              { Name: "Playing with dropdown7", path: "/playing" },
+                              { Name: "Playing with dropdown", path: "/playing" },
+                              { Name: "Playing with dropdown", path: "/playing" },
+                              { Name: "Playing with dropdown", path: "/playing"}
                               ],
                         },
                       ],
@@ -130,10 +173,10 @@ const NavArray = [
 export function NavbarRecursive() {
   return (
     <>
-    <nav className="flex px-8 py-4 bg-white shadow-lg">
+    <nav className="flex px-2 py-3 bg-white shadow-lg h-25">
 
-      <div className=" flex items-center mr-10">
-        <img src={logo} className="h-7 w-22" alt="allen-logo" />
+      <div className=" flex items-center mr-20 ">
+        <img src={logo} className=" h-9 w-15 ml-10 " alt="allen-logo" />
       </div>
 
       <ul className="flex gap-6 ">
