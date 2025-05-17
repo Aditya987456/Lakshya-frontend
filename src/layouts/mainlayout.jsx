@@ -12,7 +12,7 @@ export function Layout() {
     return(
         <div>
             
-            <NavbarRecursive/>
+            <NavbarRecursive />
             <Outlet/>
             <Footer/>
             

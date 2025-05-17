@@ -71,7 +71,7 @@ const NavArray = [
 
   { Name: "TestSeries", path: "/tests",
     dropdown: [
-        { Name: "NEET", path: "/neet/online-test",
+        { Name: "NEET", path: "/tests/online-neet-test",
           dropdown: [
             { Name: "Class 11th", path: "/class-11th" },
             { Name: "Class 12th", path: "/class-12th" },
@@ -121,7 +121,7 @@ const NavArray = [
 
 
 
-  { Name: "Study Materials", path: "/books" },
+  { Name: "Study Materials", path: "/study-materials" },
 
 
 
@@ -173,10 +173,10 @@ const NavArray = [
 export function NavbarRecursive() {
   return (
     <>
-    <nav className="flex px-2 py-3 bg-white shadow-lg h-25">
+    <nav className=" flex px-1 py-3 bg-white shadow-lg h-25 sticky top-0 z-50 ">
 
-      <div className=" flex items-center mr-20 ">
-        <img src={logo} className=" h-9 w-15 ml-10 " alt="allen-logo" />
+      <div className=" flex items-center mr-10 ">
+        <img src={logo} className="h-12 w-15 ml-6 " alt="allen-logo" />
       </div>
 
       <ul className="flex gap-6 ">
@@ -185,7 +185,8 @@ export function NavbarRecursive() {
         ))}
       </ul>
     </nav>
-    <div className="bg-green-800">something</div>
+    <div className="bg-green-800 sticky top-[70px]  shadow">something</div>
+    
     </>
   );
 }
@@ -197,7 +198,7 @@ function DropdownItem({ item, depth }) {
 
   return (
     <li
-      className="relative list-none "
+      className="relative list-none"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
