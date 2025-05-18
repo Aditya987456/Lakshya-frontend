@@ -37,13 +37,13 @@ const NavArray = [
 
       {
         Name: "Class 6-10",
-        path: "/class-6-10",
+        path: "courses/class-6-10",
         dropdown: [
-          { Name: "Class 6", path: "/class-6" },
-          { Name: "Class 7", path: "/class-7" },
-          { Name: "Class 8", path: "/class-8" },
-          { Name: "Class 9", path: "/class-9" },
-          { Name: "Class 10", path: "/class-10" },
+          { Name: "Class 6", path: "courses/class-6-10/class-6" },
+          { Name: "Class 7", path: "courses/class-6-10/class-7" },
+          { Name: "Class 8", path: "courses/class-6-10/class-8" },
+          { Name: "Class 9", path: "courses/class-6-10/class-9" },
+          { Name: "Class 10", path: "courses/class-6-10/class-10" },
         ],
       },
 
@@ -51,7 +51,7 @@ const NavArray = [
 
       {
         Name: "View All Options",
-        path: "/",
+        path: "/courses/view-all",
         dropdown: [
           { Name: "Online Courses", path: "/online-live-courses" },
           { Name: "Offline Courses", path: "offlin-website" },
@@ -59,6 +59,15 @@ const NavArray = [
           { Name: "Hindi Medium Courses", path: "/hindi-courses" },
           { Name: "International Olympiad", path: "/std-10"},
         ],
+
+        //  dropdown: [
+        //   { Name: "Online Courses", path: "/courses/view-all" },
+        //   { Name: "Offline Courses", path: "/courses/view-all" },
+        //   { Name: "Distance Courses", path: "/courses/view-all" },
+        //   { Name: "Hindi Medium Courses", path: "/courses/view-all" },
+        //   { Name: "International Olympiad", path: "/courses/view-all"},
+        // ],
+        
       }
 
 
@@ -173,7 +182,7 @@ const NavArray = [
 export function NavbarRecursive() {
   return (
     <>
-    <nav className=" flex px-1 py-3 bg-white shadow-lg h-25 sticky top-0 z-50 ">
+    <nav className=" flex px-1 py-3  bg-white shadow-lg h-25 sticky top-0 z-50 rounded-lg">
 
       <div className=" flex items-center mr-10 ">
         <img src={logo} className="h-12 w-15 ml-6 " alt="allen-logo" />
@@ -185,7 +194,7 @@ export function NavbarRecursive() {
         ))}
       </ul>
     </nav>
-    <div className="bg-green-800 sticky top-[70px]  shadow">something</div>
+    
     
     </>
   );

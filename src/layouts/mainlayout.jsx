@@ -10,13 +10,14 @@ import { NavbarRecursive } from "../components/Navbar";
 export function Layout() {
 
     return(
-        <div>
-            
-            <NavbarRecursive />
-            <Outlet/>
-            <Footer/>
-            
-        </div>
+        <div className="flex flex-col min-h-screen">
+  <NavbarRecursive />
+  <main className="flex-grow">
+    <Outlet />
+  </main>
+  <Footer />
+</div>
+
     )
     
 }

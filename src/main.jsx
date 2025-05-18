@@ -11,8 +11,9 @@ import { Course } from './pages/Courses/course-index.jsx'
 import { NeetCourse } from './pages/Courses/Neet.jsx'
 import { JeeCourse } from './pages/Courses/Jee.jsx'
 import { NeetTest } from './pages/TestSeries/Neet-test.jsx'
-import {Batches } from './pages/home.jsx'
+import { Home } from './pages/home.jsx'
 import { ComingSoon } from './components/ComingSoon.jsx'
+import { Classes } from './pages/Courses/Classes.jsx'
 
 //import { Courses } from './pages/Courses.jsx'
 
@@ -29,7 +30,7 @@ const router=createBrowserRouter([
     children: [
 
 //-------------HOME--------------- 
-      { path: "", element: <Batches/>},
+      { path: "", element: <Home/>},
 
 
 
@@ -54,6 +55,33 @@ const router=createBrowserRouter([
               { path: "class-12-droppers", element: <JeeCourse/>},
             ],
           },
+
+
+          { path: "class-6-10", element: <Classes/> ,
+            children: [
+              { path: "class-6", element:<Classes/> },
+              { path: "class-7", element: <Classes/>},
+              { path: "class-8", element: <Classes/>},
+              { path: "class-9", element: <Classes/>},
+              { path: "class-10", element: <Classes/>}
+            ],
+          },
+
+          { path: "view-all", element: <ComingSoon/>
+            // children: [
+            //   { path: "class-6", element: <NeetCourse/>},
+            //   { path: "class-7", element: <NeetCourse/>},
+            //   { path: "class-8", element: <NeetCourse/>},
+            //   { path: "class-9", element: <NeetCourse/>},
+            //   { path: "class-10", element: <NeetCourse/>}
+            // ],
+          },
+
+
+
+
+
+
         ],
       },
 
