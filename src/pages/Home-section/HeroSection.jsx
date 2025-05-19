@@ -4,8 +4,15 @@ import { FaChalkboardTeacher } from "react-icons/fa";
 import { CiDiscount1 } from "react-icons/ci";
 
 import image from '../../assets/hero-img3.png'
-
+import { Navigate, useNavigate } from "react-router-dom";
 export const HeroSection = () => {
+  const navigation=useNavigate()
+
+  const ExploreCourses = () => {
+    navigation('/courses'); 
+  };
+
+
     return (
       <section className="bg-gradient-to-br from-blue-200 to-purple-300 min-h-[600px] flex items-center px-10 md:px-20">
         <div className="max-w-2xl">
@@ -15,7 +22,9 @@ export const HeroSection = () => {
           <p className="text-lg text-blue-800 mb-8">
             Comprehensive online coaching for classes 6–12, tailored batches, doubt clearing, and exam-focused practice.
           </p>
-          <button className="bg-purple-700 text-white font-semibold px-8 py-3 rounded-full hover:bg-purple-800 transition">
+          <button
+            onClick={ExploreCourses}
+            className="bg-purple-700 text-white font-semibold px-8 py-3 rounded-full hover:bg-purple-800 transition">
             Explore Courses
           </button>
   

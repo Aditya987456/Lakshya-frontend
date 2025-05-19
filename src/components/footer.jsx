@@ -7,7 +7,7 @@ import logo from '../assets/lakshya.png'
 
 export  function Footer() {
     return (
-        <footer className="bg-white border-y">
+        <footer className="bg-[#312E81] text-white border-y">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
@@ -21,8 +21,8 @@ export  function Footer() {
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
-                            <ul className="text-gray-500 font-medium">
+                            <h2 className="mb-6 text-sm font-semibold text-white uppercase">Resources</h2>
+                            <ul className="text-gray-300 font-medium">
                                 <li className="mb-4">
                                     <Link to="/" className="hover:underline">
                                         Home
@@ -36,11 +36,11 @@ export  function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
-                            <ul className="text-gray-500 font-medium">
+                            <h2 className="mb-6 text-sm font-semibold text-white uppercase">Follow us</h2>
+                            <ul className="text-gray-300 font-medium">
                                 <li className="mb-4">
                                     <a
-                                        href="https://github.com/hiteshchoudhary"
+                                        href="https://github.com/Aditya987456"
                                         className="hover:underline"
                                         target="_blank"
                                         rel="noreferrer"
@@ -49,15 +49,15 @@ export  function Footer() {
                                     </a>
                                 </li>
                                 <li>
-                                    <Link to="/" className="hover:underline">
-                                        Discord
+                                    <Link to="https://x.com/AdityaRaj_x" className="hover:underline">
+                                        X (Twitter)
                                     </Link>
                                 </li>
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Legal</h2>
-                            <ul className="text-gray-500 font-medium">
+                            <h2 className="mb-6 text-sm font-semibold text-white uppercase">Legal</h2>
+                            <ul className="text-gray-300 font-medium">
                                 <li className="mb-4">
                                     <Link to="#" className="hover:underline">
                                         Privacy Policy
@@ -75,9 +75,9 @@ export  function Footer() {
                 <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <span className="text-sm text-gray-500 sm:text-center">
-                        © 2023
-                        <a href="https://hiteshchoudhary.com/" className="hover:underline">
-                            hiteshchoudhary
+                        © 2025
+                        <a href="#" className="hover:underline">
+                            Adityarajxdev@gmail.com
                         </a>
                         . All Rights Reserved.
                     </span>

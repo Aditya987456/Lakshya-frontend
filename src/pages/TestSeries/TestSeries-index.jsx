@@ -14,7 +14,7 @@ export const TestSeriesIndex=()=>{
 
 
             { TestIndexRoot && (
-            <div className="m-6 grid grid-cols-2">
+            <div className="m-6 grid grid-cols-2 ">
                 
                 <JeeTest/>
                 <NeetTest/>

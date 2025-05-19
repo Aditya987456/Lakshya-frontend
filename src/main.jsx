@@ -21,6 +21,8 @@ import { TestSeriesIndex } from './pages/TestSeries/TestSeries-index.jsx'
 //import { Courses } from './pages/Courses.jsx'
 
 import { HomePage } from './pages/Home-section/HomePage.jsx'
+import { Page404 } from './components/PageNotFound.jsx'
+import { ContactCard } from './pages/contact.jsx'
 
 
 
@@ -128,17 +130,36 @@ const router=createBrowserRouter([
 
 
 
+{path: 'results', element:<ComingSoon/>,
+  children:[
+    {path:'neet', element:<ComingSoon/>,
+      children:[
+        {path:'2025', element:<ComingSoon/>},
+        {path:'2024', element:<ComingSoon/>},
+        {path:'2023', element:<ComingSoon/>}
+      ]
+    },
 
 
+    {path:'jee', element:<ComingSoon/>,
+      children:[
+        {path:'2025', element:<ComingSoon/>},
+        {path:'2024', element:<ComingSoon/>},
+        {path:'2023', element:<ComingSoon/>}
+      ]
+    }
+
+  ]
+},
 
 
+{path:'more', element:<ComingSoon/>},
+
+{path:'*', element:<Page404/>},
+{path:'coming-soon',element:<ComingSoon/>},
 
 
-
-
-
-
-
+{path:'contact', element:<ContactCard/>}
 
 
 

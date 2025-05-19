@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-
+import { Navigate } from "react-router-dom";
 
 
 import React from 'react';
@@ -17,24 +17,28 @@ const courses = [
   {
     title: 'JEE (Main+Advanced)',
     image:imgJee,
+    nav: 'jee',
     batches:['class 11', 'class 12', 'class 12th plus']
   },
 
   {
     title: 'NEET',
     image:imgNeet,
+    nav: 'neet',
     batches:['class 11', 'class 12', 'class 12th plus']
 
   },
   {
     title: 'Class 6–10',
     image:imgClass,
+    nav: 'class-6-10',
     batches:['class 6', 'class 7', 'class 8', 'class 9', 'class 10']
 
   },
   {
     title: 'Extra Courses',
     image:imgExtra,
+    nav: 'view-all',
     batches:['offline', 'Hindi medium', 'Olympiad']
 
   }
@@ -49,6 +53,14 @@ export const Course = () => {
 
   const location=useLocation()
   const CourseIndexRoot=location.pathname==='/courses'
+
+  const navigate=useNavigate()
+
+
+
+
+
+
 
 
   return (
@@ -121,7 +133,9 @@ export const Course = () => {
       </ul>
     </div>
 
-    <button className="mt-auto bg-blue-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-blue-700 transition">
+    <button
+      onClick={() => navigate(`/courses/${course.nav}`)}
+      className="mt-auto bg-blue-600 text-white font-semibold px-6 py-2 rounded-full hover:bg-blue-700 transition">
       Explore Courses
     </button>
   </div>
@@ -174,56 +188,7 @@ export const Course = () => {
 
 
 
-// export const Course = () => {
-//   const location = useLocation();
-//   const isRootCoursePage = location.pathname === "/courses";
 
-//   return (
-//     <div className="bg-gray-100 min-h-screen p-6">
-//       {isRootCoursePage && (
-//         <>
-//           <h1 className="text-4xl font-bold text-center mb-10 text-blue-500">Explore Our Courses</h1>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-7xl mx-auto">
-//             {courses.map((course, index) => (
-//               <div
-//                 key={index}
-//                 className="bg-white rounded-2xl h-60 shadow-lg p-6 hover:shadow-xl transition-shadow"
-//               >
-//                 <h2 className={`text-2xl font-semibold mb-6 flex justify-center ${course.color}`}>
-//                   {course.title}
-//                 </h2>
-//                 <p className="text-gray-700">{course.description}</p>
-//                 <span className="flex justify-center mt-3">
-//                   <Button name="Explore" />
-//                 </span>
-//               </div>
-//             ))}
-//           </div>
-//         </>
-//       )}
-
-//       {/* Render nested components like NeetCourse here */}
-//       <Outlet />
-//     </div>
-//   );
-// };
-
-//import React from 'react';
-// import { CourseCard } from "./CourseCard";
-
-// export const Course = () => {
-//   return (
-//     <div className="p-8 bg-gray-100 min-h-screen">
-//       <h1 className="text-3xl font-bold text-center text-blue-600 mb-10">Available Courses</h1>
-      
-//       <CourseCard
-//         title="JEE Batch - Class 11"
-//         description="Comprehensive course covering mechanics, waves, and electromagnetism with live sessions and doubt support."
-//         price="1499"
-//       />
-//     </div>
-//   );
-// };
 
 
 

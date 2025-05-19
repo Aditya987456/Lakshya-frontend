@@ -1,10 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { MdKeyboardArrowDown} from "react-icons/md";
-
+import { Navigate } from "react-router-dom";
 
  //import logo from '../assets/allen-logo.png'
 import logo from '../assets/lakshya.png'
+import { PiPhoneCallFill } from "react-icons/pi";
 
 // Navigation array - data structure
 const NavArray = [
@@ -106,20 +107,20 @@ const NavArray = [
 
   { Name: "Result", path: "/results",
     dropdown: [
-      { Name: "NEET", path: "/result/neet",
+      { Name: "NEET", path: "/results/neet",
         dropdown: [
-          { Name: "2025", path: "/2025" },
-          { Name: "2024", path: "/2024" },
-          { Name: "2023", path: "/2023" }
+          { Name: "2025", path: "/results/neet/2025" },
+          { Name: "2024", path: "/results/neet/2024" },
+          { Name: "2023", path: "/results/neet/2023" }
          ],
        },
 
 
-      { Name: "JEE", path: "/result/jee",
+      { Name: "JEE", path: "/results/jee",
         dropdown: [
-          { Name: "2025", path: "/2025" },
-          { Name: "2024", path: "/2024" },
-          { Name: "2023", path: "/2023" }
+          { Name: "2025", path: "/results/jee/2025" },
+          { Name: "2024", path: "/results/jee/2024" },
+          { Name: "2023", path: "/results/jee/2023" }
          ],
        },
 
@@ -139,7 +140,7 @@ const NavArray = [
 
 
 
-  { Name: "More", path: "/recursion-dropdown",
+  { Name: "More", path: "/more",
     dropdown: [
         { Name: "Playing with dropdown", path: "/playing" },
         { Name: "Playing with dropdown7", path: "/playing" },
@@ -180,12 +181,26 @@ const NavArray = [
 
 // Main Navigation Component
 export function NavbarRecursive() {
+  const navigate=useNavigate()
+
+
+  const Homepaglu=()=>{
+    navigate('/')
+  }
+
+  const ContactUs=()=>{
+    navigate('/contact')
+  }
+
+
+
   return (
     <>
     <nav className=" flex px-1 py-3  bg-white shadow-lg h-25 sticky top-0 z-50 rounded-lg ">
 
-      <div className=" flex items-center mr-10 ">
-        <img src={logo} className="h-12 w-15 ml-6 " alt="allen-logo" />
+      <div className=" flex items-center mr-10 ml-2  font-extrabold text-4xl ">
+        <img src={logo} onClick={Homepaglu} className="hover:cursor-pointer h-10 w-15 ml-6 " alt="allen-logo" />
+        
       </div>
 
       <ul className="flex gap-6">
@@ -193,9 +208,17 @@ export function NavbarRecursive() {
           <DropdownItem key={item.Name} item={item} depth={0} />
         ))}
       </ul>
+{/* call button */}
+        <div
+          onClick={ContactUs}
+         className="ml-80 pl-25 pt-2 " ><PiPhoneCallFill className='transition-transform transform hover:scale-125 cursor-pointer text-blue-900 hover:to-blue-600 text-3xl'/></div>
+
+        <div><button type="button" 
+        onClick={()=>(navigate('coming-soon'))}
+        class="transition-transform transform hover:scale-105 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-8 mt-1 ">LOGIN</button></div>
+
+
     </nav>
-    
-    
     </>
   );
 }
