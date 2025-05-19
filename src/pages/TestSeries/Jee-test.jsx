@@ -1,19 +1,16 @@
 
-
-
 import { TestSeriesCard } from "../../components/Testseries"
 
-
-export const NeetTest=()=>{
-
+export function JeeTest() {
 
     return(
         <div>
             <TestSeriesCard
-                title="NEET"
+                title="JEE"
                 description="Comprehensive mock tests and performance analysis"
                 price="1499"
             />
-         </div>
+        </div>
     )
+    
 }

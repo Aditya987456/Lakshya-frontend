@@ -4,7 +4,7 @@ import { BsHourglassSplit } from 'react-icons/bs';
 
 export const ComingSoon = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-200 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#f0f4ff] px-4">
       <div className="bg-white shadow-2xl rounded-3xl p-12 md:p-20 max-w-4xl w-full text-center border border-dashed border-blue-400">
         
         <h1 className="text-3xl md:text-4xl font-bold mb-10 text-blue-700">

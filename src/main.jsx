@@ -5,18 +5,22 @@ import App from './App.jsx'
 import { BrowserRouter, createBrowserRouter,Navigate } from 'react-router-dom'
 import { Layout } from './layouts/mainlayout.jsx'
 //import { Home } from './pages/home.jsx'
-import { Testseries } from './pages/TestSeries/Testseries.jsx'
+
 import { RouterProvider } from 'react-router-dom'
 import { Course } from './pages/Courses/course-index.jsx'
 import { NeetCourse } from './pages/Courses/Neet.jsx'
 import { JeeCourse } from './pages/Courses/Jee.jsx'
-import { NeetTest } from './pages/TestSeries/Neet-test.jsx'
-import { Home } from './pages/home.jsx'
+
+//import { Home } from './pages/Home-section/HomePage.jsx'
 import { ComingSoon } from './components/ComingSoon.jsx'
 import { Classes } from './pages/Courses/Classes.jsx'
+import { NeetTest } from './pages/TestSeries/Neet-test.jsx'
+import { JeeTest } from './pages/TestSeries/Jee-test.jsx'
+import { TestSeriesIndex } from './pages/TestSeries/TestSeries-index.jsx'
 
 //import { Courses } from './pages/Courses.jsx'
 
+import { HomePage } from './pages/Home-section/HomePage.jsx'
 
 
 
@@ -30,7 +34,7 @@ const router=createBrowserRouter([
     children: [
 
 //-------------HOME--------------- 
-      { path: "", element: <Home/>},
+      { path: "", element: <HomePage/>},
 
 
 
@@ -87,13 +91,38 @@ const router=createBrowserRouter([
 
 
 
+
+
 //------------- TEST-SERIES --------------- 
-{path:'tests', element:<ComingSoon/>,
+{path:'tests', element:<TestSeriesIndex/>,
+
   children:[
-    {path:'online-neet-test', element:<NeetTest/>}
+    {path:'online-neet-test', element:<NeetTest/>,
+      children:[
+        {path:'class-11th', element:<NeetTest/>},
+        {path:'class-12th', element:<NeetTest/>},
+        {path:'class-12th-plus', element:<NeetTest/>},
+      ]
+    },
+
+
+    {path:'online-jee-test', element:<JeeTest/>,
+      children:[
+        {path:'class-11th', element:<JeeTest/>},
+        {path:'class-12th', element:<JeeTest/>},
+        {path:'class-12th-plus', element:<JeeTest/>},
+      ]
+    }
+
+
   ]
 },
 
+
+
+
+
+//--------------STUDY Materials-----------
 
 {path: 'study-materials', element:<ComingSoon/> },
 
@@ -119,15 +148,6 @@ const router=createBrowserRouter([
 
       
     ]
-
-
-
-
-
-
-
-
-
 
 
 

@@ -29,7 +29,7 @@ const jeeCourses = [
 
 export const JeeCourse = () => {
   return (
-    <div className="bg-gray-100 min-h-screen py-6 px-4">
+    <div className="bg-blue-50 min-h-screen py-6 px-4">
 
 
 

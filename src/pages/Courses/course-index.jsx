@@ -57,10 +57,10 @@ export const Course = () => {
 {CourseIndexRoot && (
 
 // storing gradient color here for page bg  gradient-to-br from-blue-100 to-purple-200
-<div className="bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen p-6 pb-10">
+<div className="bg-slate-50 min-h-screen p-6 pb-10">
 
 
-<h1 className="text-3xl font-bold text-center mb-10 p-5 text-blue-900">Explore Our Courses</h1>
+<h1 className="text-3xl font-bold text-center mb-10 p-5 text-blue-900">Explore Our Courses Categories</h1>
 {/* hover:bg-gradient-to-r from-blue-400    gradient color storing here.*/}
 
 
@@ -94,7 +94,7 @@ export const Course = () => {
     //   </div>
     // </div>
 
-    <div className="mb-10 hover:shadow-xl transition-transform transform hover:scale-105 rounded-xl p-1 shadow-xl w-[550px] h-[470px] mx-auto bg-white">
+    <div className="mb-10 hover:shadow-xl transition-transform transform hover:scale-105 border rounded-xl p-1 shadow-xl w-[550px] h-[470px] mx-auto bg-white">
   <div className="bg-white text-center rounded-lg p-6 w-full h-full flex flex-col overflow-hidden">
     <h2 className="text-2xl font-bold text-black mb-4">{course.title}</h2>
     <p className="text-sm font-semibold text-gray-800 mb-6">BEST ONLINE COACHING</p>

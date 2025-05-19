@@ -82,19 +82,19 @@ const NavArray = [
     dropdown: [
         { Name: "NEET", path: "/tests/online-neet-test",
           dropdown: [
-            { Name: "Class 11th", path: "/class-11th" },
-            { Name: "Class 12th", path: "/class-12th" },
-            { Name: "Class 12th Plus", path: "/class-12-droppers" }
+            { Name: "Class 11th", path: "/tests/online-neet-test/class-11th" },
+            { Name: "Class 12th", path: "/tests/online-neet-test/class-12th" },
+            { Name: "Class 12th Plus", path: "/tests/online-neet-test/class-12th-plus" }
            ],
          },
 
 
 
-        { Name: "JEE (Main+Advanced)", path: "/jee/online-test",
+        { Name: "JEE (Main+Advanced)", path: "/tests/online-jee-test",
           dropdown: [
-            { Name: "Class 11th", path: "/class-11th" },
-            { Name: "Class 12th", path: "/class-12th" },
-            { Name: "Class 12th Plus", path: "/class-12-droppers" }
+            { Name: "Class 11th", path: "/tests/online-jee-test/class-11th" },
+            { Name: "Class 12th", path: "/tests/online-jee-test/class-12th" },
+            { Name: "Class 12th Plus", path: "/tests/online-jee-test/class-12th-plus" }
            ],
          },
       ],
@@ -182,13 +182,13 @@ const NavArray = [
 export function NavbarRecursive() {
   return (
     <>
-    <nav className=" flex px-1 py-3  bg-white shadow-lg h-25 sticky top-0 z-50 rounded-lg">
+    <nav className=" flex px-1 py-3  bg-white shadow-lg h-25 sticky top-0 z-50 rounded-lg ">
 
       <div className=" flex items-center mr-10 ">
         <img src={logo} className="h-12 w-15 ml-6 " alt="allen-logo" />
       </div>
 
-      <ul className="flex gap-6 ">
+      <ul className="flex gap-6">
         {NavArray.map((item) => (
           <DropdownItem key={item.Name} item={item} depth={0} />
         ))}
@@ -214,8 +214,8 @@ function DropdownItem({ item, depth }) {
       <NavLink
         to={item.path}
         className={({ isActive }) =>
-            `block group px-4 py-2 rounded-xl m-1 whitespace-nowrap
-             ${isActive && depth === 0 ? "bg-green-600 text-white" : "text-gray-700 hover:bg-gray-100 "}`
+            `block group px-4 py-2 rounded-xl m-1 whitespace-nowrap text-blue-900
+             ${isActive && depth === 0 ? "font-bold " : "text-gray-700 hover:bg-slate-100 "}`
           }
       >
         
