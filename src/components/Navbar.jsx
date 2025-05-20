@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { MdKeyboardArrowDown} from "react-icons/md";
 import { Navigate } from "react-router-dom";
+import { PiListLight } from "react-icons/pi";
 
  //import logo from '../assets/allen-logo.png'
 import logo from '../assets/lakshya.png'
@@ -179,9 +180,13 @@ const NavArray = [
 
 ];
 
+
+
 // Main Navigation Component
 export function NavbarRecursive() {
   const navigate=useNavigate()
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 
   const Homepaglu=()=>{
@@ -198,30 +203,79 @@ export function NavbarRecursive() {
     <>
     <nav className=" flex px-1 py-3  bg-white shadow-lg h-25 sticky top-0 z-50 rounded-lg ">
 
-      <div className=" flex items-center mr-10 ml-2  font-extrabold text-4xl ">
-        <img src={logo} onClick={Homepaglu} className="hover:cursor-pointer h-10 w-15 ml-6 " alt="allen-logo" />
-        
-      </div>
+    <button 
+        className="md:hidden ml-auto px-4 text-3xl text-blue-900"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        ☰
+    </button>
 
-      <ul className="flex gap-6">
+
+      {/* <div className=" flex items-center mr-10 ml-2  font-extrabold text-4xl ">
+        <img src={logo} onClick={Homepaglu} className="object-contain hover:cursor-pointer  h-10 w-15 ml-6 " alt="allen-logo" />
+      </div> */}
+
+      <div className="flex items-center ml-2 mr-4 font-extrabold text-2xl sm:text-3xl md:text-4xl">
+  <img
+    src={logo}
+    onClick={Homepaglu}
+    alt="lakshya-logo"
+    className="
+      h-8 sm:h-10 md:h-12 lg:h-14
+      w-auto
+      ml-2 sm:ml-4 md:ml-6
+      object-contain
+      hover:cursor-pointer
+      max-w-[160px]
+    "
+  />
+</div>
+
+
+
+      {/* <ul className="flex gap-6">
         {NavArray.map((item) => (
           <DropdownItem key={item.Name} item={item} depth={0} />
         ))}
-      </ul>
-{/* call button */}
+      </ul> */}
+
+    <ul className={`flex-col md:flex-row md:flex gap-6 ${isMobileMenuOpen ? "flex" : "hidden"} md:gap-6`}>
+    {NavArray.map((item) => (
+      <DropdownItem key={item.Name} item={item} depth={0} />
+      ))}
+    </ul>
+
+
+
+
+
+
+      {/* call button */}
         <div
           onClick={ContactUs}
          className="ml-80 pl-25 pt-2 " ><PiPhoneCallFill className='transition-transform transform hover:scale-125 cursor-pointer text-blue-900 hover:to-blue-600 text-3xl'/></div>
+      
+      {/* login button */}
+        <div>
+            <button type="button" 
+            onClick={()=>(navigate('coming-soon'))}
+            class="transition-transform transform hover:scale-105 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-8 mt-1 ">
+            LOGIN</button>
+        </div>
 
-        <div><button type="button" 
-        onClick={()=>(navigate('coming-soon'))}
-        class="transition-transform transform hover:scale-105 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-8 mt-1 ">LOGIN</button></div>
+
+
 
 
     </nav>
     </>
   );
 }
+
+
+
+
+
 
 // Recursive Dropdown Item Component
 function DropdownItem({ item, depth }) {
