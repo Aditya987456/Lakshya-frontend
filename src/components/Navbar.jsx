@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { MdKeyboardArrowDown} from "react-icons/md";
+import { MdKeyboardArrowDown, MdKeyboardArrowRight} from "react-icons/md";
 import { Navigate } from "react-router-dom";
 import { PiListLight } from "react-icons/pi";
 
@@ -187,12 +187,6 @@ const NavArray = [
 
 
 
-
-
-
-
-
-
 // Main Navigation Component
 export function NavbarRecursive() {
   const navigate=useNavigate()
@@ -216,8 +210,12 @@ export function NavbarRecursive() {
 
     <nav className=" flex px-1 py-3 lg:bg-green-400 md:bg-pink-600  bg-white shadow-lg h-25 sticky top-0 z-50 rounded-lg ">
 
+
+
+
+
       <button 
-          className="md:hidden mr-auto px-4 text-2xl text-blue-900"
+          className="  md:hidden  px-4 text-2xl text-blue-900"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           ☰
@@ -230,7 +228,7 @@ export function NavbarRecursive() {
 
 
 {/* logo -> LAKSHYA */}
-      <div className="flex items-center md:ml-2 mr-4 font-extrabold text-2xl sm:text-3xl md:text-4xl">
+      <div className="  flex items-center md:ml-2 mr-4 font-extrabold text-2xl sm:text-3xl md:text-4xl">
           <img
             src={logo}
             onClick={Homepaglu}
@@ -249,22 +247,89 @@ export function NavbarRecursive() {
 
 
 
+{/*--------------------- normal nav on lg: ----------------- */}
 
-      {/* <ul className="flex gap-6">
+<ul className=" hidden md:flex gap-6">
         {NavArray.map((item) => (
           <DropdownItem key={item.Name} item={item} depth={0} />
         ))}
-      </ul> */}
+      </ul>
+      
+      
 
 
 
-    <ul className={`flex-col md:flex-row md:flex gap-6 ${isMobileMenuOpen ? " bg-pink-300" : "hidden "} md:gap-6`}>
+
+
+{/*----------------------- mobile wala nav: if click then open. ----------------*/}
+{isMobileMenuOpen && (
+  <>
+  {/* ###############  have to do this??????? */}
+    <div
+      className="fixed inset-0 bg-black bg-opacity-30 z-40"
+      onClick={() => setIsMobileMenuOpen(false)}
+    ></div>
+
+    <div className="fixed top-0 left-0 h-full w-3/5 max-w-sm bg-white shadow-2xl z-50 p-4 overflow-y-auto">
+        <div className="flex">
+                <img
+                        src={logo}
+                        onClick={Homepaglu}
+                        alt="lakshya-logo"
+                        className="
+                          h-8 sm:h-10 md:h-12 lg:h-14
+                          w-auto
+                          ml-2 md:ml-6
+                          sm:mr-auto
+                          object-contain
+                          hover:cursor-pointer
+                          max-w-[160px]
+                        "
+                />
+
+                <button
+                  className="text-right text-lg font-bold w-full mb-4"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  ✕
+                </button>
+        </div>
+
+
+      <ul className="flex flex-col mt-4 gap-2">
+        {NavArray.map((item) => (
+          <DropdownItem
+            key={item.Name}
+            item={item}
+            depth={0}
+// $$$$$$ ***  ###### DropdownItem is passed isMobile={true} so it knows to behave differently (e.g., clicking opens submenus instead of hover but in phone saar).
+            isMobile={true} //## mobile wala dropdown layout clicked means mobile nav khul chuka hai.
+            setIsMobileMenuOpen={setIsMobileMenuOpen}
+          />
+        ))}
+      </ul>
+    </div>
+  </>
+)}
+
+
+
+
+
+
+
+
+
+
+
+
+    {/* <ul className={`flex-col md:flex-row md:flex gap-6 ${isMobileMenuOpen ? " bg-pink-300" : "hidden "} md:gap-6`}>
     
     {NavArray.map((item) => (
       <DropdownItem isMobileMenuOpen={isMobileMenuOpen}  setIsMobileMenuOpen={setIsMobileMenuOpen}
           key={item.Name} item={item} depth={0} />
       ))}
-    </ul>
+    </ul> */}
 
 
 
@@ -298,59 +363,180 @@ export function NavbarRecursive() {
 
 
 
-// Recursive Dropdown Item Component
-function DropdownItem({ item, depth }) {
 
+
+
+
+//   //Recursive Dropdown Item Component-->   only web view  i.e lg:  breakpoint wala hai ye.
+
+// function DropdownItem({ item, depth }) {
+
+//   const [open, setOpen] = useState(false);
+//   const hasDropdown = Array.isArray(item.dropdown);
+
+//   return (
+//     <li
+//       className="relative list-none"
+//       onMouseEnter={() => setOpen(true)}
+//       onMouseLeave={() => setOpen(false)}
+//     >
+//       <NavLink
+//         to={item.path}
+//         className={({ isActive }) =>
+//             `block group px-4 py-2 rounded-xl m-1 whitespace-nowrap text-blue-900
+//              ${isActive && depth === 0 ? "font-bold " : "text-gray-700 hover:bg-slate-100 "}`
+//           }
+//       >
+        
+//         {/* <span>{item.Name}
+//         <span className="pt-1 ml-5"><MdKeyboardArrowRight /></span>
+//         </span> */}
+
+
+//         {depth===0 || hasDropdown === false?
+
+//         <span>{item.Name}</span> 
+//             :
+//         <span className="flex justify-between">{item.Name}
+//             <span className="pt-1 ml-5 "><MdKeyboardArrowDown className={`${hasDropdown === true ? "transition-all group-hover:-rotate-90":''}`}/></span>
+//         </span>
+
+//          } 
+
+//       </NavLink>
+
+
+
+
+
+//       {/* Dropdown logic */}
+//       {hasDropdown && open && (
+//         <ul
+//           className={`
+//             absolute bg-white border shadow-lg rounded-xl min-w-[250px] z-10
+//             ${depth === 0 ? "lg:top-19 lg:left-0  " : "top-0 left-full"}
+//           `}
+//         >
+//           {item.dropdown.map((subItem) => (
+//             <DropdownItem key={subItem.Name} item={subItem} depth={depth + 1} />
+//           ))}
+//         </ul>
+//       )}
+//     </li>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+function DropdownItem({ item, depth, isMobile = false, setIsMobileMenuOpen }) {
   const [open, setOpen] = useState(false);
   const hasDropdown = Array.isArray(item.dropdown);
 
-  return (
+
+  const handleClick = (e) => {
+    if (hasDropdown && isMobile) {
+      e.preventDefault(); // Prevent navigation on mobile if there's a dropdown
+      setOpen(!open);
+    } else {
+      setIsMobileMenuOpen?.(false); // Close menu on click (mobile)
+    }
+  };
+
+
+    return (
     <li
       className="relative list-none"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      {...(!isMobile && {
+        onMouseEnter: () => setOpen(true),
+        onMouseLeave: () => setOpen(false),
+      })}
     >
       <NavLink
         to={item.path}
+        onClick={handleClick}
         className={({ isActive }) =>
-            `block group px-4 py-2 rounded-xl m-1 whitespace-nowrap text-blue-900
-             ${isActive && depth === 0 ? "font-bold " : "text-gray-700 hover:bg-slate-100 "}`
-          }
+          `block group px-4 py-2 rounded-xl m-1 whitespace-nowrap text-blue-900
+          ${isActive && depth === 0 ? "font-bold" : "text-gray-700 hover:bg-slate-100"}`
+        }
       >
-        
-        {/* <span>{item.Name}
-        <span className="pt-1 ml-5"><MdKeyboardArrowRight /></span>
-        </span> */}
+  {/*------- now nav elements--- */}
+        <div className="flex justify-between items-center">
 
 
-        {depth===0 || hasDropdown === false?
+          <span>{item.Name}</span>
+   {/* $$$*-------------- agar dropdown hai tab hi arrow do but not in web && depth=0 i.e heading me not show arrow. ----------------*/}
+          {(hasDropdown && ( (depth!=0 ||  isMobile) )
 
-        <span>{item.Name}</span> 
-            :
-        <span className="flex justify-between">{item.Name}
-            <span className="pt-1 ml-5 "><MdKeyboardArrowDown className={`${hasDropdown === true ? "transition-all group-hover:-rotate-90":''}`}/></span>
-        </span>
+            && (
+            <span className="pt-1 ml-5">
+              <MdKeyboardArrowRight
+                className={`transition-transform ${
+                  isMobile ? (open ? "rotate-90" : "") : "rotate-90 group-hover:rotate-0 "
+                }`}
+              />
+            </span>
 
-         } 
+              )
+
+          )}
+
+
+
+
+        </div>
 
       </NavLink>
 
-      {/* Dropdown logic */}
       {hasDropdown && open && (
         <ul
-          className={`
-            absolute bg-white border shadow-lg rounded-xl min-w-[250px] z-10
-            ${depth === 0 ? "lg:top-19 lg:left-0  " : "top-0 left-full"}
-          `}
+          className={`${
+            isMobile
+              ? "pl-4 border-l border-blue-400 mt-1"
+              : "absolute bg-white border shadow-lg rounded-xl min-w-[250px] z-10 " +
+                (depth === 0 ? "lg:top-19 lg:left-0" : "top-0 left-full")
+          }`}
         >
           {item.dropdown.map((subItem) => (
-            <DropdownItem key={subItem.Name} item={subItem} depth={depth + 1} />
+            <DropdownItem
+              key={subItem.Name}
+              item={subItem}
+              depth={depth + 1}
+              isMobile={isMobile}
+              setIsMobileMenuOpen={setIsMobileMenuOpen}
+            />
           ))}
         </ul>
       )}
     </li>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
