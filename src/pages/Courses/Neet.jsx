@@ -39,7 +39,7 @@ export const NeetCourse = () => {
 
 
 
-      <div className="grid grid-cols-1 md:grid-cols-3 h-60 gap-10 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto flex-grow">
         
         
         {neetCourses.map((course, index) => (

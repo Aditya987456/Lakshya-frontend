@@ -39,7 +39,7 @@ export const JeeCourse = () => {
 
 
 
-      <div className="grid grid-cols-1 md:grid-cols-3 h-60 gap-10 max-w-7xl mx-auto">
+      <div className="flex-grow grid grid-cols-1 md:grid-cols-3  gap-10 max-w-7xl mx-auto">
         
         
         {jeeCourses.map((course, index) => (

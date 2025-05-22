@@ -208,7 +208,7 @@ export function NavbarRecursive() {
   return (
     <>
 
-    <nav className=" flex px-1 py-3 lg:bg-green-400 md:bg-pink-600  bg-white shadow-lg h-25 sticky top-0 z-50 rounded-lg ">
+    <nav className=" flex px-1 py-3  bg-white shadow-lg h-25 sticky top-0 z-50 rounded-lg ">
 
 
 
@@ -339,13 +339,13 @@ export function NavbarRecursive() {
       {/* call button */}
         <div
           onClick={ContactUs}
-         className=" pt-3 md:pt-2 ml-auto " ><PiPhoneCallFill className='transition-transform transform hover:scale-125 cursor-pointer text-blue-900 hover:to-blue-600 text-2xl md:text-3xl'/></div>
+         className=" pt-4 mr-1 md:pt-4 ml-auto " ><PiPhoneCallFill className='transition-transform transform hover:scale-125 cursor-pointer text-blue-900 hover:to-blue-600 text-xl md:text-3xl'/></div>
       
       {/* login button */}
         <div>
             <button type="button" 
             onClick={()=>(navigate('coming-soon'))}
-            class="transition-transform md:transform hover:scale-105 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium  rounded-full text-sm px-3 py-2    sm:px-5 sm:py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-2 sm:ml-6 mt-1 ">
+            class="transition-transform md:transform hover:scale-105 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium  rounded-full text-sm px-2 py-1    sm:px-5 sm:py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-2 sm:ml-6 mt-3 ">
             LOGIN</button>
         </div>
 
